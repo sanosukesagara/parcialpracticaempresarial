@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 16, 2016 7:18:02 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.parcial2.modelo.Telefono" table="telefono" catalog="jaysonaviles" optimistic-lock="version">
+        <id name="idTelefono" type="java.lang.Integer">
+            <column name="id_telefono" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="marca" class="com.parcial2.modelo.Marca" fetch="select">
+            <column name="id_marca" not-null="true" />
+        </many-to-one>
+        <property name="modelo" type="string">
+            <column name="modelo" length="45" not-null="true" />
+        </property>
+        <property name="fechaCompra" type="timestamp">
+            <column name="fecha_compra" length="19" not-null="true" />
+        </property>
+        <property name="ubicacion" type="string">
+            <column name="ubicacion" length="45" not-null="true" />
+        </property>
+        <property name="extension" type="int">
+            <column name="extension" not-null="true" />
+        </property>
+        <property name="activo" type="boolean">
+            <column name="activo" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

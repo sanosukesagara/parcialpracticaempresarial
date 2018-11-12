@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en"
+      xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:p="http://primefaces.org/ui"
+      >
+    <h:head>
+        <title>Parcial</title>
+    </h:head>
+    <h:body>
+        <p:layout fullPage="true">
+            <p:layoutUnit position="north" size="50" style="border: 0px;">
+                <h:outputText value="APLICACION DE PRUEBA PARA METRICAS" />
+            </p:layoutUnit>
+
+            <p:layoutUnit position="south" size="20" style="border: 0px;font-size: 10px;">
+                <div align="center" >
+                <h:outputText value="Jayson Aviles Torres" />
+                </div>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="west" size="250" style="border: 0px;" collapsible="true" header="Inicio" >
+                <h:form>
+                    <p:menu>                        
+                        <p:submenu label="Catalogo">                            
+                            <p:menuitem value="Telefono" outcome="/XHTML/telefono.xhtml" icon="ui-icon-tag"/>
+                            <p:menuitem value="Reporte" outcome="/XHTML/reporte.xhtml" icon="ui-icon-tag"/>
+                        </p:submenu>                       
+                    </p:menu>
+                </h:form>
+            </p:layoutUnit>
+
+            <p:layoutUnit position="center" style="border: 0px;">
+                <ui:insert name="content"></ui:insert>
+            </p:layoutUnit>
+        </p:layout>
+    </h:body>
+</html>
