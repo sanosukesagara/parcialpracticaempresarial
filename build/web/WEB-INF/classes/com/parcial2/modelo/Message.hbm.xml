@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<!DOCTYPE hibernate-mapping PUBLIC "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+"http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<!-- Generated May 16, 2016 7:18:02 PM by Hibernate Tools 4.3.1 -->
+<hibernate-mapping>
+    <class name="com.parcial2.modelo.Message" table="message" catalog="jaysonaviles" optimistic-lock="version">
+        <id name="idmessage" type="java.lang.Integer">
+            <column name="idmessage" />
+            <generator class="identity" />
+        </id>
+        <many-to-one name="folder" class="com.parcial2.modelo.Folder" fetch="select">
+            <column name="folder_id" not-null="true" />
+        </many-to-one>
+        <property name="subject" type="string">
+            <column name="subject" length="45" not-null="true" />
+        </property>
+        <property name="body" type="string">
+            <column name="body" length="45" not-null="true" />
+        </property>
+        <property name="receivedDate" type="timestamp">
+            <column name="received_date" length="19" not-null="true" />
+        </property>
+        <property name="replied" type="boolean">
+            <column name="replied" not-null="true" />
+        </property>
+        <property name="read" type="boolean">
+            <column name="read" not-null="true" />
+        </property>
+    </class>
+</hibernate-mapping>

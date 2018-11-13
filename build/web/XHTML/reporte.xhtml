@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE composition PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<ui:composition xmlns="http://www.w3.org/1999/xhtml"
+                xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+                template="./../WEB-INF/Template.xhtml"
+                xmlns:h="http://xmlns.jcp.org/jsf/html"
+                xmlns:p="http://primefaces.org/ui"
+                xmlns:f="http://xmlns.jcp.org/jsf/core">
+
+    <ui:define name="content">
+        <div align="center">
+        <h:form>
+            <p:growl id="growl" showDetail="false" sticky="true" />  
+            <p:panel header="Reporte Telefono">
+                <p:panelGrid columns="2" id="pnlDatos">
+                    
+                    <p:outputLabel value="Marca" />
+                    <p:selectOneMenu id="cboCategoria" binding="#{telefonoView.cboMarca2}" >
+                        <f:selectItem itemLabel="Seleccione" itemValue=""/>
+                        <f:selectItems value="#{telefonoView.listaMarcas}"  />                        
+                    </p:selectOneMenu>
+                    <p:outputLabel value="Modelo"/>
+                    <p:inputText id="txtAutor" binding="#{telefonoView.txtModelo}" />
+                    
+                </p:panelGrid>
+            </p:panel>
+            <p:panel id="pnlBotones">
+                <p:commandButton id="btnSave" value="Buscar" action="#{telefonoView.action_buscar}" update="tblTelefono, pnlDatos, growl" />
+                <p:commandButton id="btnClear" value="Limpiar" action="#{telefonoView.action_clearR}"  update="pnlDatos, tblTelefono"/>
+            </p:panel>
+            <br/>
+            <p:dataTable id="tblTelefono" value="#{telefonoView.listaTelefonos2}" var="telefono" paginator="true" rows="5" >
+                <p:column headerText="Modelo">
+                    <h:outputText value="#{telefono.modelo}" />
+                </p:column>
+                <p:column headerText="Marca">
+                    <h:outputText value="#{telefono.marca.nomMarca}" />
+                </p:column>
+                <p:column headerText="Fecha Compra">
+                    <h:outputText value="#{telefono.fechaCompra}" />
+                </p:column>
+                <p:column headerText="Estado">
+                    <h:outputText value="#{telefono.descEstado}" />
+                </p:column>
+            </p:dataTable>
+        </h:form>
+        </div>
+    </ui:define>
+
+</ui:composition>
